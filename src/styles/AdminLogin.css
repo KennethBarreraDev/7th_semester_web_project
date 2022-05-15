@@ -1,0 +1,43 @@
+body {
+    background-image: linear-gradient(to top, #FFFF, #00497D);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+  
+  
+  .input{
+    background-color: #eeeeee;
+    border-width: 0;
+    height: 2rem;
+  }
+  
+  .lb-blue{
+    color: #00497D;
+    margin-left: -0.8rem!important;
+  }
+  
+  .defaultButtons{
+    background-color: #073D83 !important;
+    color: #fff !important;
+   }
+  
+  #btnLogin{
+    background-color: #073D83 !important;
+    color: #ffffff;
+    font-weight: 600;
+    height: 2.5rem;
+    border-radius: 0.4rem;
+    border-color: #f0f0f000;
+  }
+  
+  .img-logo{
+    width: 120px !important;
+    height: auto !important;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -7rem;
+  }
