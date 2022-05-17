@@ -1,0 +1,85 @@
+
+ .mainColor{
+    background-color: #205375;
+  }
+  
+  .defaultTextColor{
+    color: white;
+  }
+  
+  button {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+  }
+
+.modalHead{
+  font-size: medium;
+  background-color: #205375;
+  color: white;
+}
+
+
+.btn.btn-success {
+  background-color: #125B50;
+  border-color: #125B50;
+  color: white;
+}
+
+.btn.btn-success:focus {
+  color: #fff;
+  background-color: #125B50;
+  border-color:  #125B50;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-success:hover {
+  color: #fff;
+  background-color: #125B50;
+  border-color: #125B50;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-success.active,
+.btn.btn-success:active {
+  color: #fff;
+  background-color: #125B50;
+  border-color: #125B50;
+  outline: none;
+}
+
+
+
+.btn.btn-secondary {
+  background-color: #112B3C;
+  border-color: #112B3C;
+  color: white;
+}
+
+.btn.btn.btn-secondary:focus {
+  color: #fff;
+  background-color: #112B3C;
+  border-color:  #112B3C;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-secondary {
+  color: #fff;
+  background-color: #112B3C;
+  border-color: #112B3C;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-secondary.active,
+.btn.btn-secondary:active {
+  color: #fff;
+  background-color: #112B3C;
+  border-color: #112B3C;
+  outline: none;
+}
+
+
+input[type="file"]{
+  display: none;
+}

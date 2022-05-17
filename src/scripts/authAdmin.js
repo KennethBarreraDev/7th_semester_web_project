@@ -1,3 +1,4 @@
+/*
 firebase.auth().onAuthStateChanged(handleAuthState);
 
 
@@ -12,3 +13,4 @@ function handleAuthState(user) {
         window.open('login.html', '_self');
     }
 }
+*/

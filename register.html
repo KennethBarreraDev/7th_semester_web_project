@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de items</title>
+    <link href="src/styles/CrudStyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+
+<body>
+
+
+    <div id="side-bar-container"></div>
+
+
+
+    <!--Main Navigation-->
+    <!--Main layout-->
+    <main style="margin-top: 30px">
+        <!--Title and addButton -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pb-4">
+                    <h3>Registro de elementos</h3>
+                </div>
+                    <div class="row">
+                    <div class="col-6">
+                        <button class="mainColor defaultTextColor shadow rounded border" data-bs-toggle="modal"
+                        data-bs-target="#registerModal">
+                        <i class="fas fa-plus pe-4" style="font-size: 1.5em; color: white;"></i>
+                        <span class="btn-title">Insertar perfil</span>
+                    </button>
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+        <div id="team-members-container"
+            class="row pb-5 mb-4 mt-4 ms-sm-1 ms-md-1 ms-lg-0 ms-xl-1 ps-sm-1 ps-md-1 ps-lg-0 ps-xl-1">
+        </div>
+
+
+        <!-- Long modal to update registers-->
+        <div class="modal fade" id="updateRegisterModal">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Long modal to add registers-->
+        <div class="modal fade" id="registerModal">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+
+                    <!--Modal header-->
+                    <div class="text-center modalHead modal-header">
+                        <h5 class="modal-title w-100">Añadir nuevo producto a inventario</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <form>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        
+                                                        <div class="card bg-white mt-2 rounded" style="width: 14rem;">
+                                                            <img id="chosen-image" src="/assets/images/no-image.jpg"
+                                                                class="card-img-top img-fluid">
+                                                            <figcaption id="file-name"></figcaption>
+                                                            <div class="card-body">
+
+                                                                <input type="file" id="upload-button" accept="image/*"
+                                                                    onclick="clearInputsOnFocusGained('imageError')">
+                                                                <label class="text-picker" for="upload-button">
+                                                                    <i class="fas fa-upload"></i> &nbsp; Selecciona una
+                                                                    imagen
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <span id="imageError" class="errorMessages"></span>
+                                                        
+                                                        
+                                                        <label class="lb-blue mt-3 mb-2"
+                                                            for="inputName">Nombre producto:</label>
+                                                        <input id="inputName" type="text" class="form-control"
+                                                            placeholder="Nombre del producto"
+                                                            onfocus="clearInputsOnFocusGained('nameError')">
+                                                        <span id="nameError" class="errorMessages"></span>
+
+                                                        
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 mb-3">
+                                                        <label class="lb-blue mt-3 mb-2"
+                                                            for="inputBrand">Marca:</label>
+                                                        <input id="inputBrand" type="text" class="form-control"
+                                                            placeholder="Marca" value=""
+                                                            onfocus="clearInputsOnFocusGained('brandError')">
+                                                        <span id="brandError" class="errorMessages"></span>
+                                                    </div>
+
+                                                    <div
+                                                        class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ms-sm-0 ms-md-0 ms-lg-4 ms-xl-4 mb-3">
+                                                        <label class="lb-blue mt-3 mb-2" for="inputPrice">Precio</label>
+                                                        <input id="inputPrice" type="text" class="form-control"
+                                                            placeholder="$0.0" value=""
+                                                            onfocus="clearInputsOnFocusGained('priceError')">
+                                                        <span id="priceError" class="errorMessages"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 mb-3">
+                                                        <label class="lb-blue mt-3 mb-2"
+                                                            for="inputQuantity">Cantidad:</label>
+                                                        <input id="inputQuantity" type="text" class="form-control"
+                                                            placeholder="0 = agotado" value=""
+                                                            onfocus="clearInputsOnFocusGained('quantityError')">
+                                                        <span id="quantityError" class="errorMessages"></span>
+                                                    </div>
+
+                                                    <div
+                                                        class="col-sm-12 col-md-12 col-lg-6 col-xl-6 ms-sm-0 ms-md-0 ms-lg-4 ms-xl-4 mb-3">
+                                                        <label class="lb-blue mt-3 mb-2" for="inputArrivalDate">Fecha arribo</label>
+                                                        <input id="inputArrivalDate" type="text" class="form-control"
+                                                            placeholder="dd/mm/aaaa" value=""
+                                                            onfocus="clearInputsOnFocusGained('arrivalDateError')">
+                                                        <span id="arrivalDateError" class="errorMessages"></span>
+                                                    </div>
+                                                </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 ms-xs-0 ms-sm-0 ms-md-0 ms-lg-5 ms-xl-5">
+                                                <label class="mt-3 mb-2"
+                                                for="inputFeatures">Características</label>
+                                                <textarea id="inputFeatures" class="form-control"
+                                                id="exampleFormControlTextarea1" rows="17"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary ps-4 pe-4 me-2"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <!--TODO: Chanlle onclick-->
+                        <div id="buttonRegister">
+                            <button type="button" class="btn btn-success" onclick="getDocumentData()">
+                                <i class="fas fa-upload pe-3" aria-hidden="true"></i>Publicar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/eec2f2ea63.js" crossorigin="anonymous"></script>
+
+
+
+    <!--Module to use in this projecy, here:-->
+
+
+    <script src="/src/scripts/preview_image.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+
+    
+    <script>
+        // Initialize Cloud Firestore through Firebase
+        var firebaseConfig = {
+        apiKey: "AIzaSyCoeqk66xn0Fcb82MKplIwhDKXCtYBumFo",
+        authDomain: "thwebproject-6e1e7.firebaseapp.com",
+        projectId: "thwebproject-6e1e7",
+        storageBucket: "thwebproject-6e1e7.appspot.com",
+        messagingSenderId: "318068135809",
+        appId: "1:318068135809:web:67123076fe3ed2a3f67a80",
+         measurementId: "G-8J0EG716D6"
+        }
+        
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="/src/scripts/authAdmin.js"></script>
+    <script src="src/scripts/insertItems.js"></script>
+</body>
+
+</html>
