@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to top, #FFFF, #00497D);
+    background-image: linear-gradient(to top, rgb(114, 192, 216), #f1f1f1);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
