@@ -27,7 +27,7 @@ function handleAuthState(user) {
     if (user) {
         toastr.success("Bienvenido");
         setTimeout(function () {
-            //sendToAdminSection()
+            sendToAdminSection()
         }, 800);
     }
 
@@ -71,7 +71,7 @@ function setLoadingButton() {
 
 
 function sendToAdminSection() {
-    window.open('news.html', '_self');
+    window.open('register.html', '_self');
 }
 
 

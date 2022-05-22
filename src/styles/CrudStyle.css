@@ -20,6 +20,12 @@
   color: white;
 }
 
+.navbar{
+  background-color: #205375 !important;
+}
+.navtext {
+  color: white !important;
+}
 
 .btn.btn-success {
   background-color: #125B50;

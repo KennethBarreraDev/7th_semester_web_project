@@ -1,4 +1,4 @@
-/*
+
 firebase.auth().onAuthStateChanged(handleAuthState);
 
 
@@ -10,7 +10,6 @@ function signoutUser() {
 // Application defs
 function handleAuthState(user) {
     if (!user) {
-        window.open('login.html', '_self');
+        //window.open('login.html', '_self');
     }
 }
-*/
