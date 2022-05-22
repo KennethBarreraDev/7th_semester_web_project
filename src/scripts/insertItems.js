@@ -87,7 +87,6 @@ function uploadImage(
     month,
     day,
     year,
-    age,
     features
 ) {
 
@@ -115,7 +114,6 @@ function uploadImage(
 
             task.then(snapshot => snapshot.ref.getDownloadURL())
                 .then(url => {
-                    console.log(url);
                     addNewItem(
                         name,
                         brand,
@@ -124,8 +122,8 @@ function uploadImage(
                         month,
                         day,
                         year,
-                        age,
-                        features
+                        features,
+                        url
                     );
                 });
         }
@@ -144,9 +142,11 @@ async function addNewItem(
     month,
     day,
     year,
-    features
+    features,
+    itemImage
 ) {
     try {
+        console.log(itemImage);
         const newItem = {
             name: name,
             brand: brand,
@@ -156,6 +156,7 @@ async function addNewItem(
                 new Date(month + ' ' + day + ', ' + year)
             ),
             features: features,
+            itemImage: itemImage,
         };
         const response = await insert(newItem, "Items");
         setDefaultRegisterButton(2);

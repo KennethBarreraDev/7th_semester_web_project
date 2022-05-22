@@ -64,7 +64,7 @@
   outline: none;
   box-shadow: none;
 }
-.btn.btn-secondary {
+.btn.btn-secondary:hover {
   color: #fff;
   background-color: #112B3C;
   border-color: #112B3C;
@@ -80,6 +80,57 @@
 }
 
 
+.btn.btn-outline-primary {
+  background-color: #205375;
+  border-color: #205375;
+  color: white;
+}
+
+.btn.btn-outline-primary:focus {
+  color: #fff;
+  background-color: #205375;
+  border-color:  #205375;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-outline-primary:hover {
+  color: #205375;
+  background-color: #fff;
+  border-color: #205375;
+  outline: none;
+  box-shadow: none;
+}
+.btn.btn-outline-primary.active,
+.btn.btn-outline-primary:active {
+  color: #fff;
+  background-color: #205375;
+  border-color: #205375;
+  outline: none;
+}
+
+
+
 input[type="file"]{
   display: none;
 }
+
+
+.defaultButtonDeleteRegister{
+  background-color: #112B3C !important;
+  color: white !important;
+}
+
+.defaultButtonUpdateRegister{
+  background-color: #125B50 !important;
+  color: white !important;
+}
+
+.errorMessages{
+  color: red;
+}
+
+.shadow-animation:hover{
+  box-shadow: 0 16px 16px 0 rgba(0,0,0,0.2) !important;
+}
+
+
