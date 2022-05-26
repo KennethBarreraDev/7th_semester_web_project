@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to top, #FFFF, #00497D);
+    background-image: linear-gradient(to top, rgb(114, 192, 216), #f1f1f1);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
@@ -12,19 +12,26 @@ body {
     border-width: 0;
     height: 2rem;
   }
+
+  .navbar{
+    background-color: #205375 !important;
+  }
+  .navtext {
+    color: white !important;
+  }
   
   .lb-blue{
-    color: #00497D;
+    color: #205375;
     margin-left: -0.8rem!important;
   }
   
   .defaultButtons{
-    background-color: #073D83 !important;
+    background-color: #205375 !important;
     color: #fff !important;
    }
   
   #btnLogin{
-    background-color: #073D83 !important;
+    background-color: #205375 !important;
     color: #ffffff;
     font-weight: 600;
     height: 2.5rem;
