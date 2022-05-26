@@ -36,7 +36,7 @@ function renderItemsInScreen() {
                     <button type="button"
                         class="btn btn-outline-primary btn-rounded waves-effect btn-sm"
                         data-bs-toggle="modal" data-bs-target="#updateRegisterModal">
-                        <i class="fas fa-eye pr-2" aria-hidden="true"></i> Ver perfil</button>
+                        <i class="fas fa-eye pr-2" aria-hidden="true"></i> Ver detalles</button>
                 </div>
             </div>
         </div>
@@ -91,7 +91,8 @@ function loadModal(itemID) {
                                                 <div class="card-body">
 
                                                     <input type="file" id="update-button" accept="image/*"
-                                                        onclick="clearInputsOnFocusGained('imageUpdateError')">
+                                                    onchange="addNewImage()"
+                                                        onclick="clearUpdateInputsOnFocusGained('imageUpdateError')">
                                                     <label class="text-picker" for="update-button">
                                                         <i class="fas fa-upload"></i> &nbsp; Selecciona una
                                                         imagen
@@ -105,7 +106,7 @@ function loadModal(itemID) {
                                                 for="inputUpdateName">Nombre producto:</label>
                                             <input id="inputUpdateName" type="text" class="form-control"
                                                 placeholder="Nombre del producto" value="${currentItem.data().name}"
-                                                onfocus="clearInputsOnFocusGained('nameError')">
+                                                onfocus="clearUpdateInputsOnFocusGained('nameUpdateError')">
                                             <span id="nameUpdateError" class="errorMessages"></span>
 
                                             
@@ -115,7 +116,7 @@ function loadModal(itemID) {
                                                 for="inputUpdateBrand">Marca:</label>
                                             <input id="inputUpdateBrand" type="text" class="form-control"
                                                 placeholder="Marca" value="${currentItem.data().brand}"
-                                                onfocus="clearInputsOnFocusGained('brandError')">
+                                                onfocus="clearUpdateInputsOnFocusGained('brandUpdateError')">
                                             <span id="brandUpdateError" class="errorMessages"></span>
                                         </div>
 
@@ -124,7 +125,7 @@ function loadModal(itemID) {
                                             <label class="lb-blue mt-3 mb-2" for="inputPrice">Precio</label>
                                             <input id="inputUpdatePrice" type="text" class="form-control"
                                                 placeholder="$0.0" value="${currentItem.data().price}"
-                                                onfocus="clearInputsOnFocusGained('priceError')">
+                                                onfocus="clearUpdateInputsOnFocusGained('priceUpdateError')">
                                             <span id="priceUpdateError" class="errorMessages"></span>
                                         </div>
                                     </div>
@@ -135,7 +136,7 @@ function loadModal(itemID) {
                                                 for="inputUpdateQuantity">Cantidad:</label>
                                             <input id="inputUpdateQuantity" type="text" class="form-control"
                                                 placeholder="0 = agotado" value="${currentItem.data().quantity}"
-                                                onfocus="clearInputsOnFocusGained('quantityError')">
+                                                onfocus="clearUpdateInputsOnFocusGained('quantityUpdateError')">
                                             <span id="quantityUpdateError" class="errorMessages"></span>
                                         </div>
 
@@ -144,8 +145,8 @@ function loadModal(itemID) {
                                             <label class="lb-blue mt-3 mb-2" for="inputUpdateArrivalDate">Fecha arribo</label>
                                             <input id="inputUpdateArrivalDate" type="text" class="form-control"
                                                 placeholder="dd/mm/aaaa" value="${getDD_MM_AAAA(currentItem.data().arrivalDate.toDate())}"
-                                                onfocus="clearInputsOnFocusGained('arrivalDateError')">
-                                            <span id="arrivalUpdateDateError" class="errorMessages"></span>
+                                                onfocus="clearUpdateInputsOnFocusGained('arrivalDateUpdateError')">
+                                            <span id="arrivalDateUpdateError" class="errorMessages"></span>
                                         </div>
                                     </div>
                                             
@@ -172,7 +173,7 @@ function loadModal(itemID) {
                     <button type="button" class="btn defaultButtonDeleteRegister" onclick="deleteDocument('${itemID}')">
                         <i class="far fa-trash-alt pe-3" aria-hidden="true"></i>Eliminar</button>
                 </div>
-                <div id="buttonUpdate">
+                <div id="updateButton">
                     <button type="button" class="btn defaultButtonUpdateRegister" onclick="updateItemInfo('${itemID}', '${currentItem.data().ItemImage}')">
                         <i class="fas fa-upload pe-3" aria-hidden="true"></i>Aplicar</button>
                 </div>
