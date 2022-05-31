@@ -53,6 +53,8 @@ function getDocumentData() {
     var Ifeatures = document.getElementById('inputFeatures').value.trim();
 
     if (!validateData(
+        Iname,
+        Ibrand,
         Iprice,
         Iquantity,
         IarrivalDate
@@ -185,6 +187,8 @@ async function insert(document, collection) {
 
 
 function validateData(
+    Iname,
+    Ibrand,
     Iprice,
     Iquantity,
     IarrivalDate
@@ -202,7 +206,21 @@ function validateData(
 
     let html = "";
 
-    if (Iprice == "" || (!regDecimal.test(Iprice) && !regInteger.test(Iprice))) {
+    if (Iname == "") {
+
+        html = `
+            Por favor, no ingrese valores vacíos
+            `
+        nameError.innerHTML = html;
+        infoIsCorrect = false;
+    }if (Ibrand == "") {
+
+        html = `
+            Por favor, no ingrese valores vacíos
+            `
+        brandError.innerHTML = html;
+        infoIsCorrect = false;
+    } if (Iprice == "" || (!regDecimal.test(Iprice) && !regInteger.test(Iprice))) {
 
         html = `
             Ingrese un valor adecuado
@@ -226,6 +244,8 @@ function validateData(
     }
     
     if (infoIsCorrect) {
+        nameError.innerHTML = "";
+        brandError.innerHTML = "";
         priceError.innerHTML = "";
         quantityError.innerHTML = "";
         arrivalDateError.innerHTML = "";
@@ -237,7 +257,11 @@ function validateData(
 
 function clearInputsOnFocusGained(calledFrom) {
 
-    if (calledFrom == "priceError")
+    if (calledFrom == "nameError")
+    nameError.innerHTML = "";
+    else if (calledFrom == "brandError")
+    brandError.innerHTML = "";
+    else if (calledFrom == "priceError")
         priceError.innerHTML = "";
     else if (calledFrom == "quantityError")
         quantityError.innerHTML = "";

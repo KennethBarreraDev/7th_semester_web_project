@@ -174,7 +174,7 @@ function loadModal(itemID) {
                         <i class="far fa-trash-alt pe-3" aria-hidden="true"></i>Eliminar</button>
                 </div>
                 <div id="updateButton">
-                    <button type="button" class="btn defaultButtonUpdateRegister" onclick="updateItemInfo('${itemID}', '${currentItem.data().ItemImage}')">
+                    <button type="button" class="btn defaultButtonUpdateRegister" onclick="updateItemInfo('${itemID}', '${currentItem.data().itemImage}')">
                         <i class="fas fa-upload pe-3" aria-hidden="true"></i>Aplicar</button>
                 </div>
             </div>

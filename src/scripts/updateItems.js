@@ -57,6 +57,8 @@ function updateItemInfo(itemID, itemImage) {
 
 
     if (!validateUpdateData(
+        IUname,
+        IUbrand,
         IUprice,
         IUquantity,
         IUarrivalDate
@@ -133,12 +135,16 @@ async function updateData(
 
 
 function validateUpdateData(
+    IUname,
+    IUbrand,
     IUprice,
     IUquantity,
     IUarrivalDate
 ) {
     var infoIsCorrect = true;
 
+    nameUpdateError.innerHTML = "";
+    brandUpdateError.innerHTML = "";
     priceUpdateError.innerHTML = "";
     quantityUpdateError.innerHTML = "";
     arrivalDateUpdateError.innerHTML = "";
@@ -150,7 +156,20 @@ function validateUpdateData(
 
     let html = "";
 
-    if (IUprice == "" || (!regDecimal.test(IUprice) && !regInteger.test(IUprice))) {
+    if (IUname == "") {
+
+        html = `
+        Por favor, no ingrese valores vacíos
+            `
+        nameUpdateError.innerHTML = html;
+        infoIsCorrect = false;
+    }  if (IUbrand == "") {
+        html = `
+        Por favor, no ingrese valores vacíos
+            `
+        brandUpdateError.innerHTML = html;
+        infoIsCorrect = false;
+    }if (IUprice == "" || (!regDecimal.test(IUprice) && !regInteger.test(IUprice))) {
 
         html = `
             Ingrese un valor adecuado
@@ -174,6 +193,8 @@ function validateUpdateData(
     }
     
     if (infoIsCorrect) {
+        nameUpdateError.innerHTML = "";
+        brandUpdateError.innerHTML = "";
         priceUpdateError.innerHTML = "";
         quantityUpdateError.innerHTML = "";
         arrivalDateUpdateError.innerHTML = "";
@@ -185,7 +206,11 @@ function validateUpdateData(
 
 
 function clearUpdateInputsOnFocusGained(calledFrom) {
-if (calledFrom == "priceUpdateError")
+if (calledFrom == "nameUpdateError")
+    nameUpdateError.innerHTML = "";
+else if (calledFrom == "brandUpdateError")
+    brandUpdateError.innerHTML = "";
+else if (calledFrom == "priceUpdateError")
     priceUpdateError.innerHTML = "";
 else if (calledFrom == "quantityUpdateError")
     quantityUpdateError.innerHTML = "";
