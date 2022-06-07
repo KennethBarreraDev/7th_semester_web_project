@@ -4,7 +4,7 @@ Proyecto de la materia Programación web avanzada
 
 ## Integrantes: (calificación)
 
-- Lopez Carranza Ivan Alejandro  (100)
+- Lopez Carranza Ivan Alejandro  (98)
 - Kenneth Osvaldo Barrera Orozco (100)
 
 ### Revisó:
